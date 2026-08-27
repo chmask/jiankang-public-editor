@@ -1,0 +1,6 @@
+interface:
+  display_name: "选题立意"
+  short_description: "为微信公众号内容明确读者、目标、传播角度与读者承诺。"
+  default_prompt: "为微信公众号内容明确读者、目标、传播角度与读者承诺。"
+policy:
+  allow_implicit_invocation: false

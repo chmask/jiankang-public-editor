@@ -1,0 +1,20 @@
+{
+  "name": "jiankang-public-editor",
+  "interface": {
+    "displayName": "见康公众传播AI主编"
+  },
+  "plugins": [
+    {
+      "name": "jiankang-public-editor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/jiankang-public-editor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "传播复盘"
+  short_description: "根据真实发布数据与反馈形成谨慎、可验证的改进假设。"
+  default_prompt: "根据真实发布数据与反馈形成谨慎、可验证的改进假设。"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "传播统筹"
+  short_description: "自动判断公众号内容当前阶段并执行最合适的专业能力。"
+  default_prompt: "自动判断公众号内容当前阶段，选择并执行最合适的专业 Skill。"
+policy:
+  allow_implicit_invocation: true
