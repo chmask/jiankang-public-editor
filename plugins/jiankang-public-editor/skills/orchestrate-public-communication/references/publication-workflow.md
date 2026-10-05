@@ -1,4 +1,6 @@
-# 公众号传播工作流
+# 双平台传播工作流
+
+先按统筹入口确认平台、输出语言与发布形式，再判断阶段。下表保留公众号路由；LinkedIn 对应 plan-linkedin-content、adapt-writing-for-linkedin、package-linkedin-publication、review-linkedin-performance。LinkedIn 发布包装须读取 ../../../references/linkedin-quality.md，执行平台与内容双向检查。
 
 ## 极简自动路由
 

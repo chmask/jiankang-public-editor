@@ -7,6 +7,10 @@ const skills = [
   "adapt-writing-for-wechat",
   "package-wechat-publication",
   "review-wechat-performance",
+  "plan-linkedin-content",
+  "adapt-writing-for-linkedin",
+  "package-linkedin-publication",
+  "review-linkedin-performance",
 ];
 
 async function exists(path) {
@@ -17,7 +21,7 @@ const manifest = JSON.parse(
   await readFile(new URL("../plugins/jiankang-public-editor/.codex-plugin/plugin.json", import.meta.url), "utf8"),
 );
 assert.equal(manifest.name, "jiankang-public-editor");
-assert.equal(manifest.version, "0.1.0");
+assert.equal(manifest.version, "0.2.0");
 assert.equal(manifest.repository, "https://github.com/chmask/jiankang-public-editor");
 assert.equal(manifest.homepage, "https://www.ai7habits.com/projects/jiankang-public-editor");
 
@@ -30,7 +34,9 @@ assert.equal(marketplace.plugins[0].source.path, "./plugins/jiankang-public-edit
 
 for (const skill of skills) {
   await exists(`../plugins/jiankang-public-editor/skills/${skill}/SKILL.md`);
+  await exists(`../plugins/jiankang-public-editor/skills/${skill}/agents/openai.yaml`);
 }
+await exists("../plugins/jiankang-public-editor/references/linkedin-quality.md");
 
 const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
 for (const term of [
@@ -43,4 +49,4 @@ for (const term of [
   assert.match(readme, new RegExp(term.replace("$", "\\$")));
 }
 
-console.log("Validated jiankang-public-editor v0.1.0");
+console.log("Validated jiankang-public-editor v0.2.0: 9 Skills");

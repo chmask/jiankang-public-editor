@@ -1,19 +1,53 @@
 # 见康公众传播AI主编使用手册
 
-适用版本：`0.1.0`
+适用版本：`0.2.0`
+
+## 0.2.0 双平台更新
+
+一个传播统筹入口、四个公众号 Skill、四个 LinkedIn Skill，共九个。公众号原有调用名称保持兼容。LinkedIn 输出英文为默认值，用户可指定其他语言；英文输入本身不决定平台。
+
+| 中文名称 | 直接调用 |
+| --- | --- |
+| LinkedIn 选题立意 | $plan-linkedin-content |
+| LinkedIn 英文改编 | $adapt-writing-for-linkedin |
+| LinkedIn 发布包装 | $package-linkedin-publication |
+| LinkedIn 传播复盘 | $review-linkedin-performance |
+
+```text
+$orchestrate-public-communication
+platform=linkedin language=en format=post
+将这份中文专业稿改编为英文动态帖，保留限定、证据和我的克制语气。
+```
+
+```text
+$package-linkedin-publication
+format=article 不改正文
+根据稳定英文稿准备标题、配套动态帖和必要封面文案，
+同时检查 LinkedIn 发布形式与文章能够兑现的承诺。
+```
+
+可用形式：post、article、companion_post、newsletter（仅单期）。控制词是提示词约定，不是 API 参数；直接用自然语言说明同样有效。多平台任务分阶段交付独立稿。没有平台信息时统筹询问平台。
+
+英文改编保护语义、术语、跨文化背景、作者声纹和身份真实性。中文稿默认中文解释、英文清稿；列出删减、歧义、身份指代及待确认术语。
+
+发布包装新增平台与内容双向质量标准：正文支持决定标题和开篇的承诺；平台形式和职业读者需求反过来影响组件选择与阅读路径。每次给出“平台要求/建议→正文依据→包装选择→缺口或作者决定”记录。正文需要补证据或实质重组时列出建议并转回改编，不擅自改正文。
+
+精确字符限制、媒体参数与账号功能发布前核验官方资料；策略建议不等于平台硬要求，不承诺算法收益。仅准备文稿，尚无 LinkedIn 账号连接或自动发布。网站现有四种在线适配器仍为公众号范围，本次 Skill 升级不会自动使网页具备 LinkedIn 能力。
+
+下文五 Skill 的流程与发布包字段适用于公众号；公共安全、作者主权与外部权限条款适用于两个平台。安装后需新任务拾取新版。
 
 ## 1. 安装与调用
 
-### 公开发布后安装
+### 公开安装或升级
 
-GitHub `v0.1.0` 发布后，可以执行：
+首次安装或将已安装版本更新到固定发布版本：
 
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.1.0
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.0
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
-安装或升级后新建一个 Codex 任务，让五个 Skill 在干净上下文中加载。这两条命令在公开仓库和 `v0.1.0` Release 建立前只是预告，不能据此声称已经公开可安装。
+安装或升级后新建一个 Codex 任务，让九个 Skill 在新上下文中加载。已安装同名 Marketplace 时，重新添加会更新其来源版本；随后再次安装插件以刷新安装快照。不要只更新市场而忘记更新插件。
 
 ### 在当前仓库本地安装
 
@@ -26,7 +60,7 @@ codex plugin add jiankang-public-editor@personal-ai-native-site
 
 ### 最简单的调用
 
-只需说明内容和目标，不需要先学习五个 Skill：
+只需说明内容和目标，不需要先学习九个 Skill：
 
 ```text
 $orchestrate-public-communication
@@ -45,9 +79,9 @@ $orchestrate-public-communication
 | `保持原结构` | 不移动段落、标题和材料顺序 |
 | `不改正文` | 只做策划、发布包装或数据复盘 |
 
-## 2. 它怎样工作
+## 2. 公众号流程怎样工作
 
-插件采用“传播统筹 + 四个专业 Skill”的结构。一次编辑阶段只使用一个主 Skill：
+公众号分支采用“传播统筹 + 四个公众号专业 Skill”的结构。一次编辑阶段只使用一个主 Skill：
 
 > 选题立意 → 渠道改编 → 发布包装 → 传播复盘
 
@@ -55,7 +89,7 @@ $orchestrate-public-communication
 
 插件可以独立安装和工作。中文作家AI助理是可选的上游专业能力，不是强制依赖。
 
-## 3. 五个 Skill
+## 3. 公众号分支的五个 Skill
 
 | Skill | 中文名称 | 什么时候使用 | 默认不会做什么 |
 | --- | --- | --- | --- |
@@ -174,6 +208,6 @@ Skill 负责让 Codex采用专业规则进行判断；MCP 更适合连接数据�
 
 ## 10. 能力边界
 
-0.1.0 聚焦微信公众号专业内容。书稿、论文、公文、小说、广告投放、社群运营和全渠道增长不属于首版完整支持范围。书稿编辑优先使用中文作家AI助理；其他体裁可以得到有限建议，但不能强行套用公众号标准。
+0.2.0 聚焦微信公众号与 LinkedIn 专业内容，LinkedIn 默认英文并支持 Newsletter 单期，不包括订阅体系运营。书稿、论文、公文、小说、广告投放、社群运营和全渠道增长不属于完整支持范围。书稿编辑优先使用中文作家AI助理；英文原稿不交由中文专用 Skill 冒充英文专业审校。其他体裁可以得到有限建议，但不能强行套用渠道标准。
 
 首版没有账号历史档案、自动数据导入、内容日历、图片生成、微信草稿创建和发布能力。这些功能只有在后续版本真实实现、验证并说明隐私与授权方式后才会进入产品介绍。

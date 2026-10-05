@@ -1,11 +1,19 @@
 ---
 name: orchestrate-public-communication
-description: Use when a user needs help planning, adapting, packaging, or reviewing professional Chinese content for a WeChat Official Account and is unsure which editorial stage applies.
+description: Route professional WeChat or LinkedIn writing through one planning, adaptation, publication packaging or review Skill, including Chinese-to-English LinkedIn adaptation.
 ---
 
 # 传播统筹
 
-把自己放在公众号主编的位置。用户只需说明内容和目标；你负责判断当前阶段、选择专业 Skill，并执行当前安全阶段，不把插件内部选择题交还给用户。
+用户只需说明平台、内容和目标；你负责判断平台、语言、形式和当前阶段，加载并执行一个主 Skill。
+
+## 双平台路由
+
+先从用户要求识别 platform=wechat|linkedin、language 和 format。它们是提示词约定，不是 API 参数。平台明确而语言未指定时，公众号默认中文，LinkedIn 默认英文；用户要求优先。输入语言不能决定平台。平台未指定且无法从任务确定时只问平台，不默认为公众号。同时请求两平台时分阶段保留两份独立稿，不在同一轮让两套规则改同一正文。
+
+LinkedIn 路由：选题 → ../plan-linkedin-content/SKILL.md；正文改编或英文修订 → ../adapt-writing-for-linkedin/SKILL.md；发布组件 → ../package-linkedin-publication/SKILL.md；真实数据复盘 → ../review-linkedin-performance/SKILL.md。正式中文名分别为 LinkedIn 选题立意、LinkedIn 英文改编、LinkedIn 发布包装、LinkedIn 传播复盘。
+
+LinkedIn 的完整调用还须读取 ../../references/linkedin-quality.md，按平台要求与正文支持双向检查。英文原稿不交给中文上游 Skill 冒充专业审校；中文源稿有阻断时仍可按原交接协议处理。显式指定的平台与 Skill 冲突时说明冲突，不静默跨平台。
 
 ## 先读取
 
@@ -54,7 +62,7 @@ description: Use when a user needs help planning, adapting, packaging, or review
 
 `计划模式｜当前阶段：<阶段>｜建议主 Skill：<中文名称>`
 
-中文名称必须原样使用：选题立意、渠道改编、发布包装、传播复盘；不得增加“公众号”等前缀或其他后缀。上游 Skill 可用且实际执行时使用它自己的正式中文名称；上游不可用并生成交接单时，主 Skill 写“传播统筹”，不能写成未执行的专业 Skill。
+中文名称必须原样使用：公众号沿用选题立意、渠道改编、发布包装、传播复盘；不得增加“公众号”等前缀或其他后缀。LinkedIn 使用上面的四个正式中文名。上游 Skill 可用且实际执行时使用它自己的正式中文名称；上游不可用并生成交接单时，主 Skill 写“传播统筹”，不能写成未执行的专业 Skill。
 
 随后立即按主 Skill 协议交付。确有确认点、材料缺口或外部授权边界时再补充，不展开不必要的内部选择过程。
 

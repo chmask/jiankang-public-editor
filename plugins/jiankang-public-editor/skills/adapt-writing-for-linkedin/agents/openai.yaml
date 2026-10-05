@@ -1,0 +1,6 @@
+policy:
+  allow_implicit_invocation: true
+interface:
+  display_name: "LinkedIn 英文改编"
+  short_description: "面向 LinkedIn 专业内容执行LinkedIn 英文改编，保护原意与证据边界。"
+  default_prompt: "使用 $adapt-writing-for-linkedin 处理这份 LinkedIn 内容，保护专业判断、作者表达与证据强度。"
