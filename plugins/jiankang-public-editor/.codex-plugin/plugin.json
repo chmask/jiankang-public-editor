@@ -1,6 +1,6 @@
 {
   "name": "jiankang-public-editor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "面向微信公众号与 LinkedIn 的专业传播助理，支持中文编辑、英文改编、平台与内容双向发布包装及谨慎复盘。",
   "author": {
     "name": "JackyCHEN",

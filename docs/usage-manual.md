@@ -1,8 +1,8 @@
 # 见康公众传播AI主编使用手册
 
-适用版本：`0.2.0`
+适用版本：`0.2.1`
 
-## 0.2.0 双平台更新
+## 0.2.1 双平台更新
 
 一个传播统筹入口、四个公众号 Skill、四个 LinkedIn Skill，共九个。公众号原有调用名称保持兼容。LinkedIn 输出英文为默认值，用户可指定其他语言；英文输入本身不决定平台。
 
@@ -40,14 +40,22 @@ format=article 不改正文
 
 ### 公开安装或升级
 
-首次安装或将已安装版本更新到固定发布版本：
+首次安装：
 
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.0
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
-安装或升级后新建一个 Codex 任务，让九个 Skill 在新上下文中加载。已安装同名 Marketplace 时，重新添加会更新其来源版本；随后再次安装插件以刷新安装快照。不要只更新市场而忘记更新插件。
+从旧版升级时，先移除旧的同名市场来源配置，再添加新标签并刷新插件：
+
+```bash
+codex plugin marketplace remove jiankang-public-editor
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
+codex plugin add jiankang-public-editor@jiankang-public-editor
+```
+
+移除的是市场来源配置，不是稿件或其他插件。安装或升级后新建一个 Codex 任务，让九个 Skill 在新上下文中加载。不要只更新市场而忘记更新插件。
 
 ### 在当前仓库本地安装
 
@@ -208,6 +216,6 @@ Skill 负责让 Codex采用专业规则进行判断；MCP 更适合连接数据�
 
 ## 10. 能力边界
 
-0.2.0 聚焦微信公众号与 LinkedIn 专业内容，LinkedIn 默认英文并支持 Newsletter 单期，不包括订阅体系运营。书稿、论文、公文、小说、广告投放、社群运营和全渠道增长不属于完整支持范围。书稿编辑优先使用中文作家AI助理；英文原稿不交由中文专用 Skill 冒充英文专业审校。其他体裁可以得到有限建议，但不能强行套用渠道标准。
+0.2.1 聚焦微信公众号与 LinkedIn 专业内容，LinkedIn 默认英文并支持 Newsletter 单期，不包括订阅体系运营。书稿、论文、公文、小说、广告投放、社群运营和全渠道增长不属于完整支持范围。书稿编辑优先使用中文作家AI助理；英文原稿不交由中文专用 Skill 冒充英文专业审校。其他体裁可以得到有限建议，但不能强行套用渠道标准。
 
 首版没有账号历史档案、自动数据导入、内容日历、图片生成、微信草稿创建和发布能力。这些功能只有在后续版本真实实现、验证并说明隐私与授权方式后才会进入产品介绍。

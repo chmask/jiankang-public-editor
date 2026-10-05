@@ -1,6 +1,6 @@
 # 见康公众传播AI主编
 
-面向微信公众号与 LinkedIn 专业内容的 Codex Skill-only 插件。0.2.0 支持英文选题、中文转英文及英文原稿改编、发布包装与传播复盘，同时保护作者主权、事实边界和论证强度。
+面向微信公众号与 LinkedIn 专业内容的 Codex Skill-only 插件。0.2.1 支持英文选题、中文转英文及英文原稿改编、发布包装与传播复盘，同时保护作者主权、事实边界和论证强度。
 
 [English](README.en.md) · [完整使用手册](docs/usage-manual.md) · [项目页](https://www.ai7habits.com/projects/jiankang-public-editor)
 
@@ -25,11 +25,13 @@
 从固定版本安装：
 
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.0
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
 安装或升级后请新建一个 Codex 任务，让 Skill 在干净上下文中加载。
+
+升级旧版时，先运行 `codex plugin marketplace remove jiankang-public-editor`，再运行上面的两条命令。移除的是市场来源配置，不是稿件或其他插件。
 
 ## 一句话使用
 
@@ -56,7 +58,7 @@ platform=linkedin language=en format=post
 
 作者保留事实、立场、结构、文风和最终表达的决定权。插件不虚构热点、事实、案例、数据、来源、引语或读者反馈，不把相关性写成因果，不为标题效果提高论断强度，不承诺爆款、阅读量或涨粉。
 
-0.2.0 没有远程后端、MCP、账号数据库或平台凭据，不会登录、上传、创建微信草稿或公开发布。网站有限试用仍是公众号适配器，不等于网页已支持 LinkedIn。英文原稿不由中文专用 Skill 冒充专业审校；不虚构第一人称经历，不判断 AI 生成概率，不提供规避检测的方法，也不模仿在世作者的可识别风格。
+0.2.1 没有远程后端、MCP、账号数据库或平台凭据，不会登录、上传、创建微信草稿或公开发布。网站有限试用仍是公众号适配器，不等于网页已支持 LinkedIn。英文原稿不由中文专用 Skill 冒充专业审校；不虚构第一人称经历，不判断 AI 生成概率，不提供规避检测的方法，也不模仿在世作者的可识别风格。
 
 ## 开发与验证
 

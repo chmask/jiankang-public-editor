@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.1] - 2026-10-06
+
+- Corrected fixed-version Marketplace upgrade instructions after verifying the installed Codex CLI: remove the old named source, add the new tag, then refresh the plugin.
+- No editorial behavior changes from 0.2.0.
+
 ## [0.2.0] - 2026-10-06
 
 - Added four LinkedIn Skills for planning, English adaptation, publication packaging and performance review; nine Skills in total.

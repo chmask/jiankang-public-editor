@@ -1,15 +1,17 @@
 # Jiankang Public Communication Editor
 
-Version 0.2.0 is an independent Codex Skill-only plugin for professional content on WeChat Official Accounts and LinkedIn. One orchestrator selects one specialist per stage: four WeChat Skills and four LinkedIn Skills, nine in total.
+Version 0.2.1 is an independent Codex Skill-only plugin for professional content on WeChat Official Accounts and LinkedIn. One orchestrator selects one specialist per stage: four WeChat Skills and four LinkedIn Skills, nine in total.
 
 LinkedIn includes English topic planning, Chinese-to-English and English-source adaptation, publication packaging and evidence-aware performance review. Packaging checks both the platform form and what the actual draft can support; it does not invent the author's experience or guarantee algorithm rewards.
 
 ## Install or update
 
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.0
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
+
+If upgrading an existing fixed-version marketplace, first run `codex plugin marketplace remove jiankang-public-editor`, then the two commands above. This removes the marketplace source configuration, not manuscripts.
 
 Start a new Codex task after installation or upgrade:
 

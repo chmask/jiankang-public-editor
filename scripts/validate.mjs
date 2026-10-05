@@ -21,7 +21,7 @@ const manifest = JSON.parse(
   await readFile(new URL("../plugins/jiankang-public-editor/.codex-plugin/plugin.json", import.meta.url), "utf8"),
 );
 assert.equal(manifest.name, "jiankang-public-editor");
-assert.equal(manifest.version, "0.2.0");
+assert.equal(manifest.version, "0.2.1");
 assert.equal(manifest.repository, "https://github.com/chmask/jiankang-public-editor");
 assert.equal(manifest.homepage, "https://www.ai7habits.com/projects/jiankang-public-editor");
 
@@ -49,4 +49,4 @@ for (const term of [
   assert.match(readme, new RegExp(term.replace("$", "\\$")));
 }
 
-console.log("Validated jiankang-public-editor v0.2.0: 9 Skills");
+console.log("Validated jiankang-public-editor v0.2.1: 9 Skills");
