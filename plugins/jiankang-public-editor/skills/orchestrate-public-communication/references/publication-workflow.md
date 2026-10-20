@@ -1,6 +1,6 @@
-# 双平台传播工作流
+# 平台传播与社群语气工作流
 
-先按统筹入口确认平台、输出语言与发布形式，再判断阶段。下表保留公众号路由；LinkedIn 对应 plan-linkedin-content、adapt-writing-for-linkedin、package-linkedin-publication、review-linkedin-performance。LinkedIn 发布包装须读取 ../../../references/linkedin-quality.md，执行平台与内容双向检查。
+先按统筹入口识别平台、输出语言与发布形式；未指定渠道默认 LinkedIn，再判断阶段。下表保留公众号路由；LinkedIn 对应 plan-linkedin-content、adapt-writing-for-linkedin、package-linkedin-publication、review-linkedin-performance。仅调整外发用词与语气时先选 adapt-social-language，适用 LinkedIn、Facebook、Instagram、Reddit 和朋友圈；读取 ../../../references/social-language.md。朋友圈不走公众号路线。LinkedIn 发布包装须读取 ../../../references/linkedin-quality.md，执行平台与内容双向检查。其他社群的语言适配不意味着已提供完整策划、包装或绩效模型。
 
 ## 极简自动路由
 

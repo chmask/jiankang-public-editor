@@ -1,15 +1,17 @@
 ---
 name: orchestrate-public-communication
-description: Route professional WeChat or LinkedIn writing through one planning, adaptation, publication packaging or review Skill, including Chinese-to-English LinkedIn adaptation.
+description: Use when coordinating professional WeChat or LinkedIn content, or adapting outward-facing copy to the language and tone of LinkedIn, Facebook, Instagram, Reddit or WeChat Moments.
 ---
 
 # 传播统筹
 
 用户只需说明平台、内容和目标；你负责判断平台、语言、形式和当前阶段，加载并执行一个主 Skill。
 
-## 双平台路由
+## 平台与社群路由
 
-先从用户要求识别 platform=wechat|linkedin、language 和 format。它们是提示词约定，不是 API 参数。平台明确而语言未指定时，公众号默认中文，LinkedIn 默认英文；用户要求优先。输入语言不能决定平台。平台未指定且无法从任务确定时只问平台，不默认为公众号。同时请求两平台时分阶段保留两份独立稿，不在同一轮让两套规则改同一正文。
+先从用户要求及当前任务已确认的渠道识别 platform=wechat|linkedin|facebook|instagram|reddit|moments、language 和 format；community、tone、slang 是可选提示词约定，不是 API 参数。未指定最终渠道时默认 LinkedIn，简短注明后继续，不为此阻断任务。语言未指定时公众号默认中文，其余外发渠道默认英文；用户指定语言优先，源语言不能决定渠道。朋友圈（moments）与公众号（wechat）分开。多渠道请求分阶段保留独立稿，不在同一轮让多套规则改同一正文。
+
+LinkedIn、Facebook、Instagram、Reddit 或朋友圈的任务只需调整已有文字的用词、缩约、简称、社区词汇或语气时，调用 **社群语气适配** `adapt-social-language`（`../adapt-social-language/SKILL.md`），读取 `../../references/social-language.md`。这些外发任务的中文提问、中文原稿和“朋友圈文案”本身都不构成中文输出指令，缺少明确目标语言则英文。显式公众号用词诊断仍走渠道改编的诊断模式，不转入这一英文默认分支。Facebook、Instagram、Reddit、朋友圈目前只路由到这一语言适配能力；不借用 LinkedIn 的指标和发布包冒称完整运营支持。请求其完整策划/复盘时明确范围与缺口，不静默换平台。`slang=off` 不新增俚语；`slang=auto`（默认）按读者、作者与可核验社区语境判断，`slang=light` 也不是强加黑话的配额。
 
 LinkedIn 路由：选题 → ../plan-linkedin-content/SKILL.md；正文改编或英文修订 → ../adapt-writing-for-linkedin/SKILL.md；发布组件 → ../package-linkedin-publication/SKILL.md；真实数据复盘 → ../review-linkedin-performance/SKILL.md。正式中文名分别为 LinkedIn 选题立意、LinkedIn 英文改编、LinkedIn 发布包装、LinkedIn 传播复盘。
 
@@ -35,7 +37,7 @@ LinkedIn 的完整调用还须读取 ../../references/linkedin-quality.md，按�
 - `mode=plan`：计划模式不改正文、不执行专业 Skill 的正文写入动作，也不创建任何外部状态。
 - `skill=<skill-name>`：显式指定专业 Skill；无法识别时说明可用名称，不静默替换。
 - `保持原结构`：不移动正文结构，只处理授权范围内的传播问题或组件。
-- `不改正文`：只进行选题策划、发布包装或传播复盘，不生成改编正文。
+- `不改正文`：可进行选题策划、文字诊断、用词建议、发布包装或传播复盘，不生成改编正文。
 
 同时出现 `mode=plan` 与 `skill=<skill-name>` 时，只围绕指定 Skill 制定计划。用户直接点名专业 Skill 时，按显式指定处理，不重复完整调度。
 
@@ -62,7 +64,7 @@ LinkedIn 的完整调用还须读取 ../../references/linkedin-quality.md，按�
 
 `计划模式｜当前阶段：<阶段>｜建议主 Skill：<中文名称>`
 
-中文名称必须原样使用：公众号沿用选题立意、渠道改编、发布包装、传播复盘；不得增加“公众号”等前缀或其他后缀。LinkedIn 使用上面的四个正式中文名。上游 Skill 可用且实际执行时使用它自己的正式中文名称；上游不可用并生成交接单时，主 Skill 写“传播统筹”，不能写成未执行的专业 Skill。
+中文名称必须原样使用：公众号沿用选题立意、渠道改编、发布包装、传播复盘；不得增加“公众号”等前缀或其他后缀。LinkedIn 使用上面的四个正式中文名；文字语体阶段用“社群语气适配”。上游 Skill 可用且实际执行时使用它自己的正式中文名称；上游不可用并生成交接单时，主 Skill 写“传播统筹”，不能写成未执行的专业 Skill。
 
 随后立即按主 Skill 协议交付。确有确认点、材料缺口或外部授权边界时再补充，不展开不必要的内部选择过程。
 

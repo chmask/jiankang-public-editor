@@ -4,6 +4,7 @@ description: Prepare content-supported LinkedIn publication components in Englis
 ---
 # LinkedIn 发布包装
 先完整读取 ../../references/linkedin-quality.md。
+发布组件的用词与语气同时按 ../../references/social-language.md 的 LinkedIn 分支检查；这些参考是本 Skill 的质量规则，不另起第二个主 Skill，不为包装效果提高事实强度。
 基于稳定正文进行平台与内容双向优化。先确定形式、作者/机构发布身份、读者与目的；不能把 post、article 与 Newsletter 套成同一发布包。
 输出可复制发布组件以及分开的适配记录和作者确认项：
 - post：适合正文的开篇；正文稳定版本说明；必要且具体的行动/讨论问题；真实存在链接的说明。

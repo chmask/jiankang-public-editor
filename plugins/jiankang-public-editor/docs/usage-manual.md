@@ -1,10 +1,43 @@
 # 见康公众传播AI主编使用手册
 
-适用版本：`0.2.1`
+适用版本：`0.3.0`
 
-## 0.2.1 双平台更新
+## 0.3.0 社群语气更新
 
-一个传播统筹入口、四个公众号 Skill、四个 LinkedIn Skill，共九个。公众号原有调用名称保持兼容。LinkedIn 输出英文为默认值，用户可指定其他语言；英文输入本身不决定平台。
+现在共十个 Skill：传播统筹、四个公众号 Skill、四个 LinkedIn Skill，以及 **社群语气适配** `$adapt-social-language`。旧调用名不变，不需要先学会十个入口。
+
+未指定最终发送渠道时默认 LinkedIn，默认英文，简短说明后直接继续。明确公众号则沿用中文默认值；明确指定其他目标语言优先。社群语气适配中，中文提问、中文原稿或“朋友圈文案”本身不指定中文输出；要中文请说“中文朋友圈”或 language=zh。原稿中文不代表公众号，朋友圈与公众号分开。
+
+```text
+$orchestrate-public-communication
+把下面这段英文改成适合外发的自然表达，保留原意与限定：……
+```
+
+以上会默认按 LinkedIn 处理。也可直接调用：
+
+```text
+$adapt-social-language
+platform=reddit language=en community=<具体社区或你提供的规则>
+按这个社区的读者调整措辞，slang=auto；保留项目关联披露，不加推广链接：……
+```
+
+`platform` 可选 linkedin、facebook、instagram、reddit、moments（朋友圈）；公众号仍用 wechat。tone、community、slang 是提示词约定，不是 API 参数，也可用自然语言表达。slang=off 不新增俚语，auto（默认）按语境判断，light 可适度轻松但不强加黑话；常规缩约不等于俚语。一个请求可要多渠道独立版本，不要求你逐个调用。
+
+| 渠道 | 文字适配起点 | 需要留意 |
+| --- | --- | --- |
+| LinkedIn | 专业、具体、可交谈，允许自然缩约 | 职业读者、身份和术语；不套成功学开头 |
+| Facebook | 按个人/主页/群组及读者关系调整 | 群组规则与具体目的，不强装熟人 |
+| Instagram | caption 对应实际内容和视觉 | 无图不编画面；emoji/标签按需 |
+| Reddit | 问题、方法、证据与局限清楚可讨论 | 本地规则、推广限制、AI 内容政策及关联披露 |
+| 朋友圈 | 自然克制、重视关系距离 | 默认英文可改中文，不编亲历或朋友评价 |
+
+缩约（we're）、专业简称（B2B）和社区用语（TL;DR、OP）分开判断；不是越多越地道。具体社群“流行词”以用户提供或可核验的近期材料为准；无材料时给通用自然语体并标明待核验。若社区明确禁止这类推广或 AI 内容，不伪装成成员经历绕过规则。
+
+Facebook、Instagram、Reddit、朋友圈本版仅支持文字/语气适配，不表示具备完整渠道策划、指标复盘、账号连接或发布功能。网页试用仍为公众号范围，不随插件升级自动增加社群能力。
+
+## 保留的双平台能力（0.2.x 起）
+
+原有传播统筹、四个公众号 Skill 与四个 LinkedIn Skill 继续保留；加上社群语气适配，当前共十个。公众号原有调用名称保持兼容。LinkedIn 输出英文为默认值，用户可指定其他语言；英文输入本身不决定平台。
 
 | 中文名称 | 直接调用 |
 | --- | --- |
@@ -26,7 +59,7 @@ format=article 不改正文
 同时检查 LinkedIn 发布形式与文章能够兑现的承诺。
 ```
 
-可用形式：post、article、companion_post、newsletter（仅单期）。控制词是提示词约定，不是 API 参数；直接用自然语言说明同样有效。多平台任务分阶段交付独立稿。没有平台信息时统筹询问平台。
+LinkedIn 可用形式：post、article、companion_post、newsletter（仅单期）。控制词是提示词约定，不是 API 参数；直接用自然语言说明同样有效。多平台任务分阶段交付独立稿。0.3.0 起没有渠道信息则默认 LinkedIn，不再为此询问。
 
 英文改编保护语义、术语、跨文化背景、作者声纹和身份真实性。中文稿默认中文解释、英文清稿；列出删减、歧义、身份指代及待确认术语。
 
@@ -34,7 +67,7 @@ format=article 不改正文
 
 精确字符限制、媒体参数与账号功能发布前核验官方资料；策略建议不等于平台硬要求，不承诺算法收益。仅准备文稿，尚无 LinkedIn 账号连接或自动发布。网站现有四种在线适配器仍为公众号范围，本次 Skill 升级不会自动使网页具备 LinkedIn 能力。
 
-下文五 Skill 的流程与发布包字段适用于公众号；公共安全、作者主权与外部权限条款适用于两个平台。安装后需新任务拾取新版。
+下文五 Skill 的流程与发布包字段适用于公众号；公共安全、作者主权与外部权限条款适用于所有渠道。安装后需新任务拾取新版。
 
 ## 1. 安装与调用
 
@@ -42,8 +75,10 @@ format=article 不改正文
 
 首次安装：
 
+从固定发布版本安装：
+
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.3.0
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
@@ -51,11 +86,11 @@ codex plugin add jiankang-public-editor@jiankang-public-editor
 
 ```bash
 codex plugin marketplace remove jiankang-public-editor
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.3.0
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
-移除的是市场来源配置，不是稿件或其他插件。安装或升级后新建一个 Codex 任务，让九个 Skill 在新上下文中加载。不要只更新市场而忘记更新插件。
+移除的是市场来源配置，不是稿件或其他插件。安装或升级后新建一个 Codex 任务，让所安装版本的 Skill 在新上下文中加载。不要只更新市场而忘记更新插件。
 
 ### 在当前仓库本地安装
 
@@ -68,7 +103,7 @@ codex plugin add jiankang-public-editor@personal-ai-native-site
 
 ### 最简单的调用
 
-只需说明内容和目标，不需要先学习九个 Skill：
+只需说明内容和目标，不需要先学习十个 Skill：
 
 ```text
 $orchestrate-public-communication
@@ -85,7 +120,7 @@ $orchestrate-public-communication
 | `mode=plan` | 只给传播方案、顺序和风险，不改正文、不创建外部状态 |
 | `skill=<skill-name>` | 强制指定一个专业 Skill，仍保留其安全边界 |
 | `保持原结构` | 不移动段落、标题和材料顺序 |
-| `不改正文` | 只做策划、发布包装或数据复盘 |
+| `不改正文` | 可做文字诊断、用词建议、策划、发布包装或复盘；不生成改编正文 |
 
 ## 2. 公众号流程怎样工作
 
@@ -115,7 +150,7 @@ $orchestrate-public-communication
 
 ```text
 $orchestrate-public-communication
-这是我的账号定位、目标读者和已有材料。请先判断这个选题是否值得做，给出正文能够兑现的传播角度，不要起草全文。
+这是我的微信公众号定位、目标读者和已有材料。请为公众号判断这个选题是否值得做，给出正文能够兑现的传播角度，不要起草全文。
 ```
 
 传播统筹会进入“选题立意” `$plan-wechat-content`，输出账号语境、目标读者、本次目标、选题价值、传播角度、读者承诺、正文兑现依据、风险和可验证假设。
@@ -210,12 +245,12 @@ Skill 负责让 Codex采用专业规则进行判断；MCP 更适合连接数据�
 
 插件不得虚构热点、人物、案例、动作、心理、感官、数据、引语、来源、读者反馈或社会共识；不得把相关性写成因果，不得为了标题效果提高论断强度。医疗、健康、法律和财务等高风险内容缺少来源时，标记“待补来源”“作者解释”或“无法由现有材料确认”。
 
-用户提供的稿件和数据只用于当前任务或当前会话中的处理。当前插件没有远程后端和账号数据库，不建立未经作者确认的永久个人档案。若未来连接外部文档、网站或微信公众号，读取、评论、修改、上传、创建草稿和公开发布分别属于不同权限，不能互相推定。
+用户提供的稿件和数据按当前任务授权处理。本插件没有独立远程后端和账号数据库，不另建未经作者确认的永久个人档案；Codex 宿主和所选模型服务的数据处理规则仍各自适用。若未来连接外部文档、网站或微信公众号，读取、评论、修改、上传、创建草稿和公开发布分别属于不同权限，不能互相推定。
 
 插件不判断文章是否由 AI 生成，不承诺规避检测，不模仿在世作者的可识别风格，也不通过错别字、随意口语和不规则标点模拟真人。
 
 ## 10. 能力边界
 
-0.2.1 聚焦微信公众号与 LinkedIn 专业内容，LinkedIn 默认英文并支持 Newsletter 单期，不包括订阅体系运营。书稿、论文、公文、小说、广告投放、社群运营和全渠道增长不属于完整支持范围。书稿编辑优先使用中文作家AI助理；英文原稿不交由中文专用 Skill 冒充英文专业审校。其他体裁可以得到有限建议，但不能强行套用渠道标准。
+0.3.0 保留微信公众号与 LinkedIn 专业内容能力，并增加多社群文字适配。LinkedIn 支持 Newsletter 单期，不包括订阅体系运营。Facebook、Instagram、Reddit、朋友圈没有完整策划、发布或绩效模型。书稿、论文、公文、小说、广告投放、社群运营和全渠道增长不属于完整支持范围。书稿编辑优先使用中文作家AI助理；英文原稿不交由中文专用 Skill 冒充英文专业审校。其他体裁可以得到有限建议，但不能强行套用渠道标准。
 
 首版没有账号历史档案、自动数据导入、内容日历、图片生成、微信草稿创建和发布能力。这些功能只有在后续版本真实实现、验证并说明隐私与授权方式后才会进入产品介绍。

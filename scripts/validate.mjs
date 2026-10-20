@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile, stat } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 
 const skills = [
   "orchestrate-public-communication",
@@ -11,6 +11,7 @@ const skills = [
   "adapt-writing-for-linkedin",
   "package-linkedin-publication",
   "review-linkedin-performance",
+  "adapt-social-language",
 ];
 
 async function exists(path) {
@@ -21,7 +22,7 @@ const manifest = JSON.parse(
   await readFile(new URL("../plugins/jiankang-public-editor/.codex-plugin/plugin.json", import.meta.url), "utf8"),
 );
 assert.equal(manifest.name, "jiankang-public-editor");
-assert.equal(manifest.version, "0.2.1");
+assert.equal(manifest.version, "0.3.0");
 assert.equal(manifest.repository, "https://github.com/chmask/jiankang-public-editor");
 assert.equal(manifest.homepage, "https://www.ai7habits.com/projects/jiankang-public-editor");
 
@@ -37,6 +38,12 @@ for (const skill of skills) {
   await exists(`../plugins/jiankang-public-editor/skills/${skill}/agents/openai.yaml`);
 }
 await exists("../plugins/jiankang-public-editor/references/linkedin-quality.md");
+await exists("../plugins/jiankang-public-editor/references/social-language.md");
+const actualSkills = await readdir(new URL("../plugins/jiankang-public-editor/skills", import.meta.url));
+assert.deepEqual(actualSkills.sort(), [...skills].sort());
+const manual = await readFile(new URL("../docs/usage-manual.md", import.meta.url), "utf8");
+assert.ok(manual.includes(`--ref v${manifest.version}`));
+assert.ok(manual.includes('$adapt-social-language'));
 
 const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
 for (const term of [
@@ -49,4 +56,4 @@ for (const term of [
   assert.match(readme, new RegExp(term.replace("$", "\\$")));
 }
 
-console.log("Validated jiankang-public-editor v0.2.1: 9 Skills");
+console.log("Validated jiankang-public-editor v0.3.0: 10 Skills");

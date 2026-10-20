@@ -4,6 +4,7 @@ description: Conservatively adapt Chinese source material or revise English draf
 ---
 # LinkedIn 英文改编
 先完整读取 ../../references/linkedin-quality.md。
+英文用词、缩约、简称及社群语气同时按 ../../references/social-language.md 的 LinkedIn 分支检查；只调整语气、不改结构时可由社群语气适配处理，不在同一轮叠加两个主 Skill。
 识别源语言、目标语言、形式、读者和授权范围；LinkedIn 明确而输出语言未指定时采用英文，并说明；用户语言要求优先。未知形式可按交付目的建议并说明，不暗自压缩长文。
 诊断模式只给问题与原文证据。保守改编先给诊断摘要，再给完整可复制清稿，最后列语义、证据强度、身份指代、术语和删减风险。中文源稿默认用中文解释、英文交稿；英文源稿默认英文解释，用户指定优先。
 逐项保护限定、否定、时间、数字单位、引用和“我/我们”指代。没有明确亲历依据不得加入 I learned、our clients 或职业成就。不得在翻译中提高事实强度。

@@ -1,32 +1,43 @@
 # Jiankang Public Communication Editor
 
-Version 0.2.1 is an independent Codex Skill-only plugin for professional content on WeChat Official Accounts and LinkedIn. One orchestrator selects one specialist per stage: four WeChat Skills and four LinkedIn Skills, nine in total.
+Version 0.3.0 is an independent Codex Skill-only plugin for professional communication. It retains WeChat Official Account and LinkedIn planning, adaptation, publication packaging and performance review, and adds social language adaptation for LinkedIn, Facebook, Instagram, Reddit and WeChat Moments.
 
-LinkedIn includes English topic planning, Chinese-to-English and English-source adaptation, publication packaging and evidence-aware performance review. Packaging checks both the platform form and what the actual draft can support; it does not invent the author's experience or guarantee algorithm rewards.
+There are ten Skills: one orchestrator, four WeChat specialists, four LinkedIn specialists and social language adaptation. Each stage uses one main Skill.
 
 ## Install or update
 
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.2.1
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.3.0
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
-If upgrading an existing fixed-version marketplace, first run `codex plugin marketplace remove jiankang-public-editor`, then the two commands above. This removes the marketplace source configuration, not manuscripts.
+When upgrading an existing fixed-version marketplace, first run `codex plugin marketplace remove jiankang-public-editor`, then the two commands above. This removes the source configuration, not manuscripts or other plugins. Start a new Codex conversation after updating.
 
-Start a new Codex task after installation or upgrade:
+## Use
 
 ```text
 $orchestrate-public-communication
-platform=linkedin language=en format=post
-Adapt this professional draft into an English LinkedIn post. Preserve its qualifiers, evidence and my restrained voice: …
+Adapt this outward-facing copy to a natural, audience-appropriate voice. Preserve meaning, qualifiers and my identity: …
 ```
 
-Formats: post, article, companion_post and a single newsletter edition. Controls are prompt conventions, not API parameters. Natural-language requests also work.
+If no channel is specified, LinkedIn is the default. English is the default target language for social copy, even when the source or request is Chinese. An explicit target language takes priority; explicit WeChat Official Account tasks retain a Chinese default. Moments and Official Accounts are distinct.
+
+For a specific community:
+
+```text
+$adapt-social-language
+platform=reddit language=en community=<specific community and supplied rules>
+Adjust the wording and tone without inventing experience or concealing my project affiliation: …
+```
+
+Natural contractions, professional abbreviations and community terminology are separate editorial choices. There is no slang quota. Claims about current community language need supplied or verified recent evidence; otherwise the plugin uses a neutral natural register and identifies the gap. It does not disguise promotion or AI-assisted content to bypass community rules.
+
+LinkedIn publication packaging checks both the platform form and what the draft supports. Substantive body changes return to adaptation with author decisions.
 
 ## Boundaries
 
-No backend, MCP server, account database, credentials or automatic publishing. Optional Chinese Writer AI Assistant handoff applies to Chinese source material, not as a substitute for English editorial review. The website's limited trial remains WeChat-only.
+Facebook, Instagram, Reddit and Moments support text/register adaptation only, not complete channel strategy, analytics or account operations. The website trial remains WeChat-only. No backend, MCP server, account database, credentials or automatic publishing. Codex host and model-provider data policies apply separately.
 
-No fabricated facts, sources, metrics, feedback or first-person accomplishments; no promises of virality. Structural validation does not certify editorial expertise. Independent forward testing of the new LinkedIn branch remains pending.
+No fabricated facts, sources, metrics, feedback or first-person accomplishments; no virality promises. Independent forward trials and boundary regressions were performed for social adaptation, but do not certify native-editor quality or platform results. Authors still review outputs.
 
 See the [Chinese README](README.md) and [usage manual](docs/usage-manual.md). Licensed under Apache-2.0.

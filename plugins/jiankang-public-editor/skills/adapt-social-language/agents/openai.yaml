@@ -1,0 +1,6 @@
+interface:
+  display_name: "社群语气适配"
+  short_description: "按 LinkedIn 等渠道和具体社区调整外发用词与语气，保留事实与作者声音。"
+  default_prompt: "使用 $adapt-social-language 优化这段外发文字的渠道用词与语气；未指定渠道默认 LinkedIn，保留原意与限定。"
+policy:
+  allow_implicit_invocation: true

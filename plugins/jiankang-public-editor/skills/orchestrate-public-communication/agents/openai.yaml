@@ -1,6 +1,6 @@
 interface:
   display_name: "传播统筹"
-  short_description: "自动判断公众号内容当前阶段并执行最合适的专业能力。"
-  default_prompt: "自动判断公众号内容当前阶段，选择并执行最合适的专业 Skill。"
+  short_description: "统筹公众号与 LinkedIn 内容及多社群语气适配，未指定渠道默认 LinkedIn。"
+  default_prompt: "使用 $orchestrate-public-communication 自动判断这份外发内容的阶段并执行适合的 Skill，未指定渠道默认 LinkedIn。"
 policy:
   allow_implicit_invocation: true

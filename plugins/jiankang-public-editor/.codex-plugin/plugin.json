@@ -1,7 +1,7 @@
 {
   "name": "jiankang-public-editor",
-  "version": "0.2.1",
-  "description": "面向微信公众号与 LinkedIn 的专业传播助理，支持中文编辑、英文改编、平台与内容双向发布包装及谨慎复盘。",
+  "version": "0.3.0",
+  "description": "公众号与 LinkedIn 专业传播助理，新增 Facebook、Instagram、Reddit 和朋友圈用词语气适配；未指定渠道默认 LinkedIn。",
   "author": {
     "name": "JackyCHEN",
     "url": "https://github.com/chmask"
@@ -15,13 +15,18 @@
     "content-strategy",
     "editorial",
     "linkedin",
-    "english-writing"
+    "english-writing",
+    "social-language",
+    "facebook",
+    "instagram",
+    "reddit",
+    "wechat-moments"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "见康公众传播AI主编",
-    "shortDescription": "公众号与 LinkedIn 双平台专业传播，保护原意、英文质量和作者主权",
-    "longDescription": "传播统筹与八个专业 Skill 协作，分别处理公众号及 LinkedIn 的策划、改编、包装和复盘。LinkedIn 支持中文转英文与英文稿修订，发布包装同时检查平台形式与正文承诺。无账号连接和自动发布；网站试用范围另行说明。",
+    "shortDescription": "专业传播与社群语气适配，未指定渠道默认 LinkedIn，保护事实和作者声音",
+    "longDescription": "共十个 Skill：传播统筹、四个公众号能力、四个 LinkedIn 能力及社群语气适配。按渠道、读者和具体社区选择缩约、专业简称与社区用词，不堆砌俚语、不冒充成员。Facebook、Instagram、Reddit、朋友圈仅覆盖文字适配；不代表完整运营或自动发布。",
     "developerName": "JackyCHEN",
     "category": "Productivity",
     "capabilities": [
@@ -35,7 +40,8 @@
       "自动判断这篇公众号内容当前最需要处理的传播阶段，并直接执行最合适的专业 Skill。",
       "把这篇稳定稿保守改编为适合微信公众号阅读的版本，保护原意与作者声纹。",
       "根据我提供的真实发布数据和反馈进行传播复盘，不把相关性写成因果。",
-      "把专业稿改编为 LinkedIn 英文内容，保留证据强度；根据平台形式与正文内容双向优化发布包装。"
+      "把专业稿改编为 LinkedIn 英文内容，保留证据强度；根据平台形式与正文内容双向优化发布包装。",
+      "按目标社群调整这段英文的缩约、用词与语气；未指定渠道默认 LinkedIn，不虚构经历或社区习惯。"
     ]
   }
 }
