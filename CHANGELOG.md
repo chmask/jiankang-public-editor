@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.4.0] - 2026-11-20
+
+- Added 公众号标题策划 / gzh-title-strategist as a standalone Skill, bringing the plugin to 11 Skills.
+- Added title diagnosis, generation, rewriting, comparison, ranking and cautious review with supplied account data, without body rewriting.
+- Separated diagnosis-only, comparison-only and full strategy outputs; retained accurate original titles and source-material boundaries.
+- Routed explicit WeChat title-only requests to the new Skill while preserving full publication packaging and the LinkedIn fallback for unspecified channels.
+- Adapted the upstream liucongg Skill at commit 19e42a49fbb18bfe496e7d2950754d9d7d68904f under Apache-2.0; retained its license, attribution and modification notices. Historical statistics are not verified account baselines, current trends or algorithm rules.
+- Updated the manual, project introduction and installation tag. Website trial modes, account connections and publishing permissions remain unchanged.
+- Completed four independent forward-test groups and post-review regressions; structural validation does not certify editorial quality or platform results.
+
 ## [0.3.0] - 2026-10-20
 
 - Added 社群语气适配 / adapt-social-language, bringing the plugin to 10 Skills.

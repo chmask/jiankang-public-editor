@@ -1,44 +1,64 @@
 ---
 title: 见康公众传播AI主编
 slug: jiankang-public-editor
-subtitle: 专业内容传播与社群语气适配助手
-summary: 为公众号与 LinkedIn 提供选题、改编、发布包装和复盘，并适配 Facebook、Instagram、Reddit、朋友圈的用词与语气；未指定渠道时默认 LinkedIn。
+subtitle: 专业内容传播、公众号标题策划与社群语气适配
+summary: 为公众号与 LinkedIn 提供选题、改编、发布包装和复盘，新增独立的公众号标题诊断、改写与比较；同时适配 Facebook、Instagram、Reddit、朋友圈的用词与语气。
 coverImage: /projects/jiankang-public-editor/cover.png
 projectStatus: Open Source Beta
 category: AI Writing Tools
 role: Product Director & Builder
 language: zh
-tags: [Codex Plugin, 微信公众号, LinkedIn, 英文写作, 社群语气, 内容传播, 开源]
+tags: [Codex Plugin, 微信公众号, 标题策划, LinkedIn, 英文写作, 社群语气, 内容传播, 开源]
 githubUrl: https://github.com/chmask/jiankang-public-editor
-documentationUrl: https://github.com/chmask/jiankang-public-editor/blob/main/docs/usage-manual.md
+documentationUrl: https://github.com/chmask/jiankang-public-editor/blob/v0.4.0/docs/usage-manual.md
 demoUrl: /projects/writing-tools/try?product=jiankang-public-editor
-seoTitle: 见康公众传播AI主编 0.3.0｜专业传播与社群语气适配
-seoDescription: 开源 Codex 插件，含十个 Skill：公众号与 LinkedIn 专业传播，以及 Facebook、Instagram、Reddit、朋友圈文字适配。未指定渠道默认 LinkedIn。
-geoSummary: 见康公众传播AI主编 0.3.0 是开源 Codex Skill-only 插件，共十个 Skill：传播统筹、四个公众号 Skill、四个 LinkedIn Skill 和社群语气适配。支持中文转英文及英文稿改编，按读者关系和社区语境选择缩约、简称与用词，保护事实、作者声纹和身份。未指定渠道默认 LinkedIn，外发未指定语言默认英文，明确公众号则默认中文。Facebook、Instagram、Reddit、朋友圈仅覆盖文字适配；网页试用仍为公众号范围，不提供账号连接或自动发布。
+seoTitle: 见康公众传播AI主编 0.4.0｜新增独立公众号标题策划
+seoDescription: 开源 Codex 插件，含十一个 Skill。独立诊断、改写和比较公众号标题，不改正文；保留 LinkedIn 专业传播与多社群语气适配。未指定渠道默认 LinkedIn。
+geoSummary: 见康公众传播AI主编 0.4.0 是开源 Codex Skill-only 插件，共十一个 Skill：传播统筹、五个公众号 Skill、四个 LinkedIn Skill 和社群语气适配。新增公众号标题策划 gzh-title-strategist，可独立诊断、生成、改写、比较与排序标题，不改正文；统筹识别公众号标题任务后自动调用，完整发布包仍走发布包装。未指定渠道默认 LinkedIn，外发未指定语言默认英文，明确公众号则默认中文。Facebook、Instagram、Reddit、朋友圈仅覆盖文字适配；网页试用仍只提供四个公众号固定适配器，尚无独立标题入口，不提供账号连接或自动发布。
 ---
 
 ## 项目是什么
 
-“见康公众传播AI主编”是一款专业内容传播 Codex 插件。公众号和 LinkedIn 分别有选题、改编、发布包装与真实数据复盘能力；0.3.0 新增“社群语气适配”，为已有文字调整缩约、专业简称、社区用词和语气，覆盖 LinkedIn、Facebook、Instagram、Reddit 与朋友圈。
+“见康公众传播AI主编”是一款专业内容传播 Codex 插件。公众号和 LinkedIn 分别有选题、改编、发布包装与真实数据复盘能力；0.4.0 新增独立的“公众号标题策划”，只处理标题，不顺带重写正文或生成整套发布包。已有“社群语气适配”继续为 LinkedIn、Facebook、Instagram、Reddit 与朋友圈调整缩约、专业简称、社区用词和语气。
 
 同一个观点，面对职业同行、群组成员或熟悉的朋友，措辞不必一样。插件先保留原意、证据强度和作者身份，再根据读者关系与具体场景改文字，不以俚语数量衡量是否“地道”。未指定最终发送渠道时默认 LinkedIn；外发内容未指定目标语言时默认英文，明确公众号则沿用中文默认值。
 
 插件采用 Skill-only 架构，不需要独立后端、API Key 或微信公众号凭据。它可以独立安装；当文章在事实、论证或结构上仍有上游问题时，也可以与“中文作家AI助理”协作，并用明确的交接单隔开专业编辑与渠道传播。
 
-## 十个专业 Skill
+## 十一个专业 Skill
 
 传播统筹 `$orchestrate-public-communication` 是统一入口。自动模式每一轮只选择并执行一个主 Skill，避免多个规则同时改写正文。
 
 1. **传播统筹** `$orchestrate-public-communication`：识别当前阶段，判断是否需要上游编辑，选择并执行一个专业 Skill；
 2. **选题立意** `$plan-wechat-content`：结合账号语境、目标读者、传播目标和已有材料，明确内容承诺及其兑现依据；
 3. **渠道改编** `$adapt-writing-for-wechat`：把稳定稿改编为适合公众号阅读的版本，保留自然段、事实强度和作者声纹；
-4. **发布包装** `$package-wechat-publication`：根据正文生成标题、摘要、封面短文案、文末行动和转发文字，不借包装之名重写正文；
-5. **传播复盘** `$review-wechat-performance`：区分真实观察、可比基线、可能解释、未知和下一轮可验证假设；
-6. **LinkedIn 选题立意** `$plan-linkedin-content`：明确职业读者、发布身份、形式与正文能够兑现的承诺；
-7. **LinkedIn 英文改编** `$adapt-writing-for-linkedin`：处理中文转英文及英文原稿，保护限定、术语、声纹与身份真实性；
-8. **LinkedIn 发布包装** `$package-linkedin-publication`：按动态帖、长文、配套帖或 Newsletter 单期准备实际需要的组件，同时核查平台适配与正文依据；
-9. **LinkedIn 传播复盘** `$review-linkedin-performance`：根据真实数据和可比窗口提出谨慎解释，不保证算法收益；
-10. **社群语气适配** `$adapt-social-language`：根据渠道、读者关系、作者声音和可核验社区材料，调整已有文字的用词、缩约、简称与语气。
+4. **公众号标题策划** `$gzh-title-strategist`：独立诊断、生成、改写、比较与排序公众号标题，说明正文依据和取舍，不改正文；
+5. **发布包装** `$package-wechat-publication`：根据正文生成标题、摘要、封面短文案、文末行动和转发文字，不借包装之名重写正文；
+6. **传播复盘** `$review-wechat-performance`：区分真实观察、可比基线、可能解释、未知和下一轮可验证假设；
+7. **LinkedIn 选题立意** `$plan-linkedin-content`：明确职业读者、发布身份、形式与正文能够兑现的承诺；
+8. **LinkedIn 英文改编** `$adapt-writing-for-linkedin`：处理中文转英文及英文原稿，保护限定、术语、声纹与身份真实性；
+9. **LinkedIn 发布包装** `$package-linkedin-publication`：按动态帖、长文、配套帖或 Newsletter 单期准备实际需要的组件，同时核查平台适配与正文依据；
+10. **LinkedIn 传播复盘** `$review-linkedin-performance`：根据真实数据和可比窗口提出谨慎解释，不保证算法收益；
+11. **社群语气适配** `$adapt-social-language`：根据渠道、读者关系、作者声音和可核验社区材料，调整已有文字的用词、缩约、简称与语气。
+
+## 0.4.0 新增：只做公众号标题
+
+文章已经稳定，只想判断原标题、比较几个方案，或寻找不同标题方向时，可以直接调用“公众号标题策划”：
+
+```text
+$gzh-title-strategist
+只优化这篇公众号文章的标题，不改正文。
+目标读者：……；作者语气：克制、具体。
+原标题：……
+正文：……
+给三个不同方向，说明正文依据，最后推荐一个。
+```
+
+普通优化默认提供三至六个实质不同的候选，用户可以指定数量；准确有力的原标题可以保留。只诊断时不生成替换标题，只比较时不新增方案。需要系统策划时再要求“完整标题策略”，展开多风格候选与排序；评分是编辑判断，不是点击率预测。
+
+继续用传播统筹说“这篇公众号文章只优化标题”，也会自动进入新入口。标题加摘要、封面和转发文案的组合仍由“发布包装”处理；没有渠道信息的泛标题请求仍默认 LinkedIn，不会误用公众号规则。
+
+这项能力改编自 [liucongg/liucong-skills 的 gzh-title-strategist](https://github.com/liucongg/liucong-skills/tree/19e42a49fbb18bfe496e7d2950754d9d7d68904f/skills/gzh-title-strategist)，保留 Apache-2.0 许可和修改说明。上游历史统计未由本项目独立复核，不作为用户账号基线、当前热点或微信推荐算法规则；没有材料依据，不加“首个”“官方”、效果数字或作者亲历。
 
 ## 最简单的使用方式
 
@@ -74,7 +94,7 @@ platform=reddit language=en community=<具体社区或你提供的规则>
 
 要中文朋友圈文案，请明确写“中文朋友圈”或 `platform=moments language=zh`。“朋友圈文案”只指定渠道，没有指定输出语言；朋友圈不是公众号，插件不会因原稿中文就自动改成公众号文章。
 
-除了传播统筹，也可以直接调用九个专业子 Skill。提示词中的 `platform`、`language`、`community`、`tone`、`slang`、`mode=plan`、`skill=<skill-name>`、“保持原结构”和“不改正文”是可选约定，不是 Codex API 参数，用自然语言说明同样有效。
+除了传播统筹，也可以直接调用十个专业子 Skill。提示词中的 `platform`、`language`、`community`、`tone`、`slang`、`mode=plan`、`skill=<skill-name>`、“保持原结构”和“不改正文”是可选约定，不是 Codex API 参数，用自然语言说明同样有效。
 
 ## 社群语气怎样适配
 
@@ -86,7 +106,7 @@ LinkedIn 以职业读者、具体判断和依据为起点；Facebook 要区分�
 
 ## 有限在线体验
 
-网站统一试用页为 `/projects/writing-tools/try?product=jiankang-public-editor`。它仍只提供公众号范围的选题立意、渠道改编、发布包装和传播复盘四个固定适配器，与“中文作家AI助理”共用匿名访客每日额度。LinkedIn 和新增社群语气能力需安装 Codex 插件使用，不会随插件升级自动进入网页试用。
+网站统一试用页为 `/projects/writing-tools/try?product=jiankang-public-editor`。它仍只提供公众号范围的选题立意、渠道改编、发布包装和传播复盘四个固定适配器，与“中文作家AI助理”共用匿名访客每日额度。独立公众号标题策划、LinkedIn 和社群语气能力需安装 Codex 插件使用，不会随插件升级自动进入网页试用。
 
 在线页不是 Codex Skill 运行环境：它不会自动调度插件、读取账号档案、浏览事实、上传文件、连接微信、创建草稿或发布内容。传播统筹与跨插件协作也需安装 Codex 插件。
 
@@ -114,14 +134,14 @@ LinkedIn 发布包装采用双向检查：正文的核心判断、依据和限�
 
 插件没有独立远程后端和账号数据库，不会自行保存账号长期档案，也不会自动登录、上传或发布到微信公众号、LinkedIn 或其他社群。稿件仍在当前 Codex 任务环境中处理，模型服务与 Codex 自身的数据处理规则另行适用。即使未来增加 MCP 或网站连接层，读取、修改、上传、创建草稿和公开发布仍是彼此独立的权限，必须逐项获得授权。
 
-## 0.3.0 的边界
+## 0.4.0 的边界
 
 公众号和 LinkedIn 保留完整的四阶段编辑流程；LinkedIn 支持动态帖、长文、配套帖及 Newsletter 单期。Facebook、Instagram、Reddit 和朋友圈只支持已有文字的语言与轻量适配，不提供这些渠道的完整选题、发布包或绩效模型。语气适配不是全渠道运营，也不代替发布前的平台与社区规则核验。
 
-网页试用仍为公众号范围。不完整支持书稿、论文、公文、小说、广告投放、社群运营或全渠道增长；没有账号长期档案、自动数据导入、内容日历、图片生成、微信草稿创建和自动发布能力，也不承诺爆款、阅读量或涨粉。
+网页试用仍为公众号范围，尚无独立标题策划入口。不完整支持书稿、论文、公文、小说、广告投放、社群运营或全渠道增长；没有账号长期档案、自动数据导入、内容日历、图片生成、微信草稿创建和自动发布能力，也不承诺爆款、阅读量或涨粉。
 
 ## 开源与路线
 
-项目以独立仓库开源：[GitHub](https://github.com/chmask/jiankang-public-editor)。[0.3.0](https://github.com/chmask/jiankang-public-editor/releases/tag/v0.3.0) 在公众号与 LinkedIn 专业能力之外增加社群语气适配，并将未指定渠道时的默认值设为 LinkedIn。安装、升级和十个 Skill 的用法见[用户手册](https://github.com/chmask/jiankang-public-editor/blob/main/docs/usage-manual.md)。插件结构检查不等于专业质量认证，实际使用仍需作者审阅。
+项目以独立仓库开源：[GitHub](https://github.com/chmask/jiankang-public-editor)。[0.4.0](https://github.com/chmask/jiankang-public-editor/releases/tag/v0.4.0) 在既有专业传播与社群语气能力之外，增加可单独调用的公众号标题策划。安装、升级和十一个 Skill 的用法见[0.4.0 用户手册](https://github.com/chmask/jiankang-public-editor/blob/v0.4.0/docs/usage-manual.md)。插件结构检查不等于专业质量认证，实际使用仍需作者审阅。
 
 后续版本将依次探索可审阅的账号档案、系列选题与内容日历、多篇文章的结构化复盘，以及经明确授权的 MCP 或网站连接层。

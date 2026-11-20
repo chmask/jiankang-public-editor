@@ -1,13 +1,13 @@
 # Jiankang Public Communication Editor
 
-Version 0.3.0 is an independent Codex Skill-only plugin for professional communication. It retains WeChat Official Account and LinkedIn planning, adaptation, publication packaging and performance review, and adds social language adaptation for LinkedIn, Facebook, Instagram, Reddit and WeChat Moments.
+Version 0.4.0 is an independent Codex Skill-only plugin for professional communication. It adds a standalone WeChat Official Account title strategist, while retaining WeChat and LinkedIn planning, adaptation, publication packaging and performance review, plus social language adaptation.
 
-There are ten Skills: one orchestrator, four WeChat specialists, four LinkedIn specialists and social language adaptation. Each stage uses one main Skill.
+There are eleven Skills: one orchestrator, five WeChat specialists, four LinkedIn specialists and social language adaptation. Each stage uses one main Skill.
 
 ## Install or update
 
 ```bash
-codex plugin marketplace add chmask/jiankang-public-editor --ref v0.3.0
+codex plugin marketplace add chmask/jiankang-public-editor --ref v0.4.0
 codex plugin add jiankang-public-editor@jiankang-public-editor
 ```
 
@@ -34,9 +34,26 @@ Natural contractions, professional abbreviations and community terminology are s
 
 LinkedIn publication packaging checks both the platform form and what the draft supports. Substantive body changes return to adaptation with author decisions.
 
+## WeChat title work only
+
+```text
+$gzh-title-strategist
+Improve only the title of this WeChat Official Account article, without rewriting the body.
+Give three distinct directions, explain the draft support, and recommend one.
+Audience: …
+Current title: …
+Article: …
+```
+
+Direct use establishes a WeChat context and defaults to Chinese; an explicit target language takes priority. The orchestrator also selects this Skill for explicit WeChat title-only requests. A full title/digest/cover package still uses publication packaging. Generic title requests without a channel still default to LinkedIn.
+
+Ordinary optimization offers three to six distinct options, unless a count is specified. Diagnosis-only does not replace the title; comparison-only does not add candidates; an accurate existing title may be retained. Full strategy is optional. Ratings are editorial judgments, not predicted click-through rates. Partial source material is identified rather than treated as a verified full draft.
+
+Adapted from [liucongg/liucong-skills](https://github.com/liucongg/liucong-skills/tree/19e42a49fbb18bfe496e7d2950754d9d7d68904f/skills/gzh-title-strategist) under Apache-2.0; see the included [source and modification record](plugins/jiankang-public-editor/skills/gzh-title-strategist/UPSTREAM.md). Its historical statistics have not been independently verified and are not current trends, account baselines, or WeChat algorithm rules.
+
 ## Boundaries
 
-Facebook, Instagram, Reddit and Moments support text/register adaptation only, not complete channel strategy, analytics or account operations. The website trial remains WeChat-only. No backend, MCP server, account database, credentials or automatic publishing. Codex host and model-provider data policies apply separately.
+Facebook, Instagram, Reddit and Moments support text/register adaptation only, not complete channel strategy, analytics or account operations. The website trial remains WeChat-only with four fixed modes; it does not include the standalone title Skill. No backend, MCP server, account database, credentials or automatic publishing. Codex host and model-provider data policies apply separately.
 
 No fabricated facts, sources, metrics, feedback or first-person accomplishments; no virality promises. Independent forward trials and boundary regressions were performed for social adaptation, but do not certify native-editor quality or platform results. Authors still review outputs.
 

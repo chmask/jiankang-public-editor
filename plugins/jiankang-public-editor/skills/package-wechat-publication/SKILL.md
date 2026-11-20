@@ -7,6 +7,8 @@ description: Use when a stable WeChat Official Account draft needs accurate titl
 
 围绕稳定稿生成能够由正文兑现的发布组件。每次读取 `references/publication-package.md`；需要生成或比较标题、摘要与开篇时，再读取 `references/title-and-opening.md`。
 
+本 Skill 保留整套组件中的少量标题及备选，不自动另开完整标题策略流程。用户只要公众号标题的诊断、改写、比较或排序时，使用独立的“公众号标题策划” `gzh-title-strategist`（`../gzh-title-strategist/SKILL.md`），不生成发布包；同一轮仍只执行一个主 Skill。
+
 ## 开始前
 
 确认正文已经稳定到足以承担标题和摘要承诺。若正文无法兑现预期承诺，返回传播统筹进行选题立意、渠道改编或上游编辑交接，不用更强的包装掩盖内容缺口。

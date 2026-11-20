@@ -1,6 +1,6 @@
 ---
 name: orchestrate-public-communication
-description: Use when coordinating professional WeChat or LinkedIn content, or adapting outward-facing copy to the language and tone of LinkedIn, Facebook, Instagram, Reddit or WeChat Moments.
+description: Use when coordinating professional WeChat or LinkedIn content, optimizing a WeChat article title, or adapting outward-facing copy to the language and tone of LinkedIn, Facebook, Instagram, Reddit or WeChat Moments.
 ---
 
 # 传播统筹
@@ -10,6 +10,8 @@ description: Use when coordinating professional WeChat or LinkedIn content, or a
 ## 平台与社群路由
 
 先从用户要求及当前任务已确认的渠道识别 platform=wechat|linkedin|facebook|instagram|reddit|moments、language 和 format；community、tone、slang 是可选提示词约定，不是 API 参数。未指定最终渠道时默认 LinkedIn，简短注明后继续，不为此阻断任务。语言未指定时公众号默认中文，其余外发渠道默认英文；用户指定语言优先，源语言不能决定渠道。朋友圈（moments）与公众号（wechat）分开。多渠道请求分阶段保留独立稿，不在同一轮让多套规则改同一正文。
+
+显式“公众号标题”或 `$gzh-title-strategist` 已给出公众号语境，在缺渠道默认值之前识别为 wechat，默认中文；显式其他平台与该 Skill 冲突时先说明冲突，不静默换平台。只诊断、生成、改写、比较或排序公众号标题，进入 **公众号标题策划** `gzh-title-strategist`（`../gzh-title-strategist/SKILL.md`）；不要因标题中涉及“语气”“关键词”而改走正文语气适配。泛称“优化标题”但无渠道信息仍默认 LinkedIn，走 LinkedIn 发布包装。标题加摘要、封面或转发文字等完整公众号发布包仍走发布包装，不在同一轮自动展开两个主 Skill。
 
 LinkedIn、Facebook、Instagram、Reddit 或朋友圈的任务只需调整已有文字的用词、缩约、简称、社区词汇或语气时，调用 **社群语气适配** `adapt-social-language`（`../adapt-social-language/SKILL.md`），读取 `../../references/social-language.md`。这些外发任务的中文提问、中文原稿和“朋友圈文案”本身都不构成中文输出指令，缺少明确目标语言则英文。显式公众号用词诊断仍走渠道改编的诊断模式，不转入这一英文默认分支。Facebook、Instagram、Reddit、朋友圈目前只路由到这一语言适配能力；不借用 LinkedIn 的指标和发布包冒称完整运营支持。请求其完整策划/复盘时明确范围与缺口，不静默换平台。`slang=off` 不新增俚语；`slang=auto`（默认）按读者、作者与可核验社区语境判断，`slang=light` 也不是强加黑话的配额。
 
@@ -45,6 +47,7 @@ LinkedIn 的完整调用还须读取 ../../references/linkedin-quality.md，按�
 
 - **选题立意** `plan-wechat-content`（`../plan-wechat-content/SKILL.md`）：处理账号语境、读者、目标、选题价值、传播角度和读者承诺；
 - **渠道改编** `adapt-writing-for-wechat`（`../adapt-writing-for-wechat/SKILL.md`）：把稳定内容调整为适合公众号阅读的版本；
+- **公众号标题策划** `gzh-title-strategist`（`../gzh-title-strategist/SKILL.md`）：独立诊断、生成、改写、比较与排序公众号标题，不改正文；
 - **发布包装** `package-wechat-publication`（`../package-wechat-publication/SKILL.md`）：处理标题、摘要、封面文案、文末行动和转发文字；
 - **传播复盘** `review-wechat-performance`（`../review-wechat-performance/SKILL.md`）：根据真实数据与反馈形成谨慎解释和可验证假设。
 
@@ -64,7 +67,7 @@ LinkedIn 的完整调用还须读取 ../../references/linkedin-quality.md，按�
 
 `计划模式｜当前阶段：<阶段>｜建议主 Skill：<中文名称>`
 
-中文名称必须原样使用：公众号沿用选题立意、渠道改编、发布包装、传播复盘；不得增加“公众号”等前缀或其他后缀。LinkedIn 使用上面的四个正式中文名；文字语体阶段用“社群语气适配”。上游 Skill 可用且实际执行时使用它自己的正式中文名称；上游不可用并生成交接单时，主 Skill 写“传播统筹”，不能写成未执行的专业 Skill。
+中文名称必须原样使用：原有公众号四项沿用选题立意、渠道改编、发布包装、传播复盘；不得增加“公众号”等前缀或其他后缀。新增标题能力的正式中文名为“公众号标题策划”，不改为“发布包装”。LinkedIn 使用上面的四个正式中文名；文字语体阶段用“社群语气适配”。上游 Skill 可用且实际执行时使用它自己的正式中文名称；上游不可用并生成交接单时，主 Skill 写“传播统筹”，不能写成未执行的专业 Skill。
 
 随后立即按主 Skill 协议交付。确有确认点、材料缺口或外部授权边界时再补充，不展开不必要的内部选择过程。
 

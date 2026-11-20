@@ -2,6 +2,8 @@
 
 先按统筹入口识别平台、输出语言与发布形式；未指定渠道默认 LinkedIn，再判断阶段。下表保留公众号路由；LinkedIn 对应 plan-linkedin-content、adapt-writing-for-linkedin、package-linkedin-publication、review-linkedin-performance。仅调整外发用词与语气时先选 adapt-social-language，适用 LinkedIn、Facebook、Instagram、Reddit 和朋友圈；读取 ../../../references/social-language.md。朋友圈不走公众号路线。LinkedIn 发布包装须读取 ../../../references/linkedin-quality.md，执行平台与内容双向检查。其他社群的语言适配不意味着已提供完整策划、包装或绩效模型。
 
+先识别显式公众号语境（包括 `$gzh-title-strategist`），再应用 LinkedIn 默认值。标题专门请求优先于一般发布包装和正文语气适配；用户明确要整套组件时保持发布包装。LinkedIn 标题不套用公众号标题规则。仅有题面时可以诊断，但不能声称已核验正文。
+
 ## 极简自动路由
 
 按用户真正需要的交付物判断当前阶段，不按输入篇幅或关键词机械路由：
@@ -10,7 +12,8 @@
 | --- | --- | --- |
 | 读者、目标、传播角度或读者承诺尚不明确 | 选题立意 `plan-wechat-content` | 可由材料兑现的传播方案 |
 | 已有稳定稿，需要调整公众号阅读路径 | 渠道改编 `adapt-writing-for-wechat` | 诊断或可复制改编稿 |
-| 只需要标题、摘要、封面文案或其他发布组件 | 发布包装 `package-wechat-publication` | 可复制发布包 |
+| 只需要公众号标题诊断、生成、改写、比较或排序 | 公众号标题策划 `gzh-title-strategist` | 标题判断、候选或推荐，按请求收束 |
+| 只需要摘要、封面文案，或标题与其他发布组件的组合 | 发布包装 `package-wechat-publication` | 可复制发布包 |
 | 已有发布数据或真实读者反馈 | 传播复盘 `review-wechat-performance` | 观察、解释边界与下一轮假设 |
 
 用户同时要求多项工作时，先处理最上游且会改变后续结果的一项。若正文尚不稳定，不能先用大量标题方案掩盖内容问题；若用户明确只要发布组件且正文能够兑现承诺，不扩大为全文改写。
